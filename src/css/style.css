@@ -1,0 +1,190 @@
+/* Grundlegendes Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hauptinhalt Styling */
+main {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+    transform: translateX(-100%); /* Sidebar standardmäßig außerhalb des sichtbaren Bereichs */
+    transition: transform 5s ease-in-out; /* Weiche und langsame Animation */
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Sidebar einblenden, wenn Checkbox aktiviert ist */
+#sidebar-toggle:checked ~ .sidebar {
+    transform: translateX(0); /* Sidebar in den sichtbaren Bereich schieben */
+}
+
+/* Schwebender Button für Sidebar-Toggle */
+.toggle-sidebar-label {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    background-color: #ff6347;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, left 0.5s ease; /* Farb- und Positionsübergang */
+    z-index: 1100;
+}
+
+/* Button innerhalb der Sidebar anzeigen, wenn die Sidebar aktiv ist */
+#sidebar-toggle:checked + .toggle-sidebar-label {
+    position: absolute;
+    left: calc(25% - 40px); /* Rechts innerhalb der Sidebar */
+    top: 20px;
+}
+
+/* Hover-Effekt beim Klicken auf den Button */
+.toggle-sidebar-label:hover {
+    background-color: #52e60d;
+    box-shadow: #64e60d 0 8px 24px;
+}
+
+.SidebarNav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Logo */
+.SidebarNav .logo {
+    font-size: 1.5em;
+    color: #ff6347;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Hauptlinks in der Sidebar */
+.SidebarNav li {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.SidebarNav li a, .SidebarNav li button {
+    display: flex;
+    align-items: center;
+    color: #e8eaed;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover-Effekt für Links und Buttons */
+.SidebarNav li a:hover, .SidebarNav li button:hover {
+    background-color: #444;
+}
+
+/* SVG-Icons Styling */
+.SidebarNav li svg {
+    margin-right: 10px;
+    fill: #ff6347; /* Icon-Farbe */
+}
+
+/* Aktiver Link */
+.SidebarNav li.active > a {
+    background-color: #555;
+    color: #ff6347;
+}
+
+/* Submenu Styling */
+.sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.sub-menu li {
+    padding-left: 20px;
+}
+
+.sub-menu li a {
+    display: block;
+    padding: 8px 10px;
+    font-size: 0.9em;
+    color: #e8eaed;
+}
+
+/* Dropdown Button Styling */
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: #e8eaed;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background-color: #444;
+}
+
+/* Kontrolle des ausgeklappten Untermenüs */
+.dropdown-btn:focus + .sub-menu,
+.dropdown-btn:active + .sub-menu,
+.dropdown-btn.open + .sub-menu {
+    max-height: 500px; /* Höhe für das aufgeklappte Untermenü */
+}
+
+/* Rotations-Animation für das Pfeil-Symbol */
+.dropdown-btn svg:last-child {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-btn.open svg:last-child {
+    transform: rotate(180deg);
+}
