@@ -1,0 +1,31 @@
+/* Schwebender Button für Sidebar-Toggle */
+.toggle-sidebar-label {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    background-color: #ff6347;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, left 0.5s ease; /* Farb- und Positionsübergang */
+    z-index: 1100;
+}
+
+/* Button innerhalb der Sidebar anzeigen, wenn die Sidebar aktiv ist */
+#sidebar-toggle:checked + .toggle-sidebar-label {
+    position: absolute;
+    left: calc(14% - 40px); /* Rechts innerhalb der Sidebar */
+    top: 20px;
+}
+
+/* Hover-Effekt beim Klicken auf den Button */
+.toggle-sidebar-label:hover {
+    background-color: #52e60d;
+    box-shadow: #64e60d 0 8px 24px;
+    border-style: groove;
+    border-color: rgba(204, 176, 14, 0.5);
+}
