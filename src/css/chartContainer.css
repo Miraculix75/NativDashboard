@@ -11,11 +11,11 @@
     align-items: center;
     justify-content: center;
     cursor: grab; /* Greif-Symbol für Drag */
-    resize: both; /* Vergrößerung und Verkleinerung erlauben */
     overflow: hidden; /* Scrollbalken entfernen */
     min-width: 250px; /* Minimale Breite */
     min-height: 200px; /* Minimale Höhe */
     z-index: 1; /* Standardmäßig niedriger z-index */
+    resize: none; /* Verhindert standardmäßiges Vergrößern */
 }
 
 /* Aktives Dragging */
@@ -33,4 +33,16 @@
     height: 80vh;
     z-index: 9999; /* Höherer z-index für Vordergrund */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Vergrößerungszone in der rechten unteren Ecke */
+.chart-container::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    right: 0;
+    cursor: se-resize; /* Symbol für Vergrößerung */
+    background-color: transparent; /* Unsichtbar, aber anklickbar */
 }

@@ -39,17 +39,33 @@
 
 // dragAndDrop.js
 
+// 
+
+// dragAndDrop.js
+
 document.addEventListener("DOMContentLoaded", () => {
     const containers = document.querySelectorAll(".chart-container");
 
     containers.forEach(container => {
-        container.addEventListener("mousedown", startDrag);
-        container.addEventListener("touchstart", startDrag);
+        container.addEventListener("mousedown", handleMouseDown);
+        container.addEventListener("touchstart", handleMouseDown, { passive: false });
     });
 
-    function startDrag(e) {
+    function handleMouseDown(e) {
+        const container = e.target.closest(".chart-container");
+
+        // Prüfen, ob der Benutzer die rechte untere Ecke greift (für Vergrößerung)
+        const isResizing = e.target === container && e.offsetX >= container.offsetWidth - 20 && e.offsetY >= container.offsetHeight - 20;
+
+        if (isResizing) {
+            startResize(e, container);
+        } else {
+            startDrag(e, container);
+        }
+    }
+
+    function startDrag(e, container) {
         e.preventDefault();
-        const container = e.target;
         let offsetX, offsetY;
 
         if (e.type === "mousedown") {
@@ -64,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             offsetX = touch.clientX - rect.left;
             offsetY = touch.clientY - rect.top;
 
-            document.addEventListener("touchmove", drag);
+            document.addEventListener("touchmove", drag, { passive: false });
             document.addEventListener("touchend", stopDrag);
         }
 
@@ -90,4 +106,36 @@ document.addEventListener("DOMContentLoaded", () => {
             document.removeEventListener("touchend", stopDrag);
         }
     }
+
+    function startResize(e, container) {
+        e.preventDefault();
+        const initialWidth = container.offsetWidth;
+        const initialHeight = container.offsetHeight;
+        const startX = e.clientX || e.touches[0].clientX;
+        const startY = e.clientY || e.touches[0].clientY;
+
+        document.addEventListener("mousemove", resize);
+        document.addEventListener("mouseup", stopResize);
+        document.addEventListener("touchmove", resize, { passive: false });
+        document.addEventListener("touchend", stopResize);
+
+        function resize(e) {
+            const currentX = e.clientX || e.touches[0].clientX;
+            const currentY = e.clientY || e.touches[0].clientY;
+
+            const newWidth = initialWidth + (currentX - startX);
+            const newHeight = initialHeight + (currentY - startY);
+
+            container.style.width = `${newWidth}px`;
+            container.style.height = `${newHeight}px`;
+        }
+
+        function stopResize() {
+            document.removeEventListener("mousemove", resize);
+            document.removeEventListener("mouseup", stopResize);
+            document.removeEventListener("touchmove", resize);
+            document.removeEventListener("touchend", stopResize);
+        }
+    }
 });
+
