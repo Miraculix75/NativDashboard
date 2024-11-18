@@ -1,0 +1,14 @@
+/* Dashboard-Hintergrund */
+.dashboard {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}

@@ -1,0 +1,36 @@
+/* Grundlegendes Styling für Chart-Container */
+.chart-container {
+    position: absolute; /* Absolut für freie Bewegung innerhalb der Dashboard-Oberfläche */
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: grab; /* Greif-Symbol für Drag */
+    resize: both; /* Vergrößerung und Verkleinerung erlauben */
+    overflow: hidden; /* Scrollbalken entfernen */
+    min-width: 250px; /* Minimale Breite */
+    min-height: 200px; /* Minimale Höhe */
+    z-index: 1; /* Standardmäßig niedriger z-index */
+}
+
+/* Aktives Dragging */
+.chart-container:active {
+    cursor: grabbing; /* Anderes Symbol während des Ziehens */
+}
+
+/* Vergrößerungsmodus - bringt den Container in den Vordergrund */
+.chart-container.active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2); /* Zentrieren und vergrößern */
+    width: 90vw;
+    height: 80vh;
+    z-index: 9999; /* Höherer z-index für Vordergrund */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}

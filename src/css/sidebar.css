@@ -13,3 +13,8 @@
     z-index: 1000;
     overflow-y: auto;
 }
+
+/* Sidebar einblenden, wenn Checkbox aktiviert ist */
+#sidebar-toggle:checked ~ .sidebar {
+    transform: translateX(0); /* Sidebar in den sichtbaren Bereich schieben */
+}

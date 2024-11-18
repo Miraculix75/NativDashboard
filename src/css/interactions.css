@@ -1,0 +1,34 @@
+/* Hover- und Übergangseffekte für Chart-Container */
+.chart-container {
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px); /* Leichtes Anheben bei Hover */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Übergangseffekte bei Aktivierung */
+.chart-container.active {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Chart Titel Styling */
+.chart-container h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Canvas für die Charts */
+.chart-container canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Zurücksetzen-Animation für alle Container */
+.chart-container.reset {
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
