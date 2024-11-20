@@ -1,114 +1,11 @@
-@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
-@import url('https://fonts.cdnfonts.com/css/poppins');
-
-/* Banner Styling */
-.banner {
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.banner .slider {
-    position: absolute;
-    width: 200px;
-    height: 250px;
-    top: 10%;
-    left: calc(50% - 100px);
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    animation: autoRun 20s linear infinite;
-    z-index: 2;
-}
-
-@keyframes autoRun {
-    from {
-        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
-    }
-    to {
-        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
-    }
-}
-
-.banner .slider .item {
-    position: absolute;
-    inset: 0 0 0 0;
-    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-        translateZ(550px);
-}
-
-.banner .slider .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.banner .content {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(1400px, 100vw);
-    height: max-content;
-    padding-bottom: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-}
-
-.banner .content h1 {
-    font-family: 'ICA Rubrik';
-    font-size: 16em;
-    line-height: 1em;
-    color: #25283b;
-    position: relative;
-}
-
-.banner .content h1::after {
-    position: absolute;
-    inset: 0 0 0 0;
-    content: attr(data-content);
-    z-index: 2;
-    -webkit-text-stroke: 2px #d2d2d2;
-    color: transparent;
-}
-
-.banner .content .author {
-    font-family: Poppins;
-    text-align: right;
-    max-width: 200px;
-}
-
-.banner .content h2 {
-    font-size: 3em;
-}
-
-.banner .content .model {
-    background-image: url(images/model.png);
-    width: 100%;
-    height: 75vh;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-size: auto 130%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    z-index: 1;
-}
-
 /* Footer Styling */
 footer {
     position: relative;
-    background: linear-gradient(145deg, #0d47a1, #1e88e5); /* Starker Gradient */
+    background: linear-gradient(145deg, #0d47a1, #1e88e5); /* Gradient */
     color: white;
-    padding: 20px;
-    height: 60vh; /* Platz für den Banner und Links */
+    height: 60vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     overflow: hidden;
     box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3);
@@ -122,6 +19,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    perspective: 200px; /* Wichtig für 3D-Ansicht */
     overflow: hidden;
 }
 
@@ -131,12 +29,26 @@ footer {
     height: 250px;
     transform-style: preserve-3d;
     animation: autoRun 20s linear infinite;
+    perspective: 1500px; /* Perspektive weiter für flacheren Blick */
+    transform: rotateX(-30deg) rotateY(0deg); /* Draufsichtwinkel ändern */
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(200px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(200px) rotateY(360deg);
+    }
 }
 
 .footer-banner .slider .item {
     position: absolute;
-    inset: 0;
-    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)))) translateZ(500px);
+    /* width: 100px;
+    height: 150px; */
+     inset: 0;
+     transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)))) translateZ(800px); /* Erhöht auf 800px */
+    /* transition: transform 0.3s ease, opacity 0.3s ease; */
 }
 
 .footer-banner .slider .item img {
@@ -149,80 +61,59 @@ footer {
 
 /* Footer-Links Styling */
 .footer-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
     margin-top: 10px;
+    text-align: center;
 }
 
 .footer-links .link-item {
-    font-size: 1em;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 0.9em;
+    color: white;
 }
 
 .footer-links .link-item a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.footer-links .link-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
+.footer-links .link-item a:hover {
+    color: #ff6347;
 }
 
 /* Responsive Anpassungen */
 @media (max-width: 1023px) {
-    .banner .slider {
-        width: 160px;
-        height: 200px;
-        left: calc(50% - 80px);
-    }
-    .banner .slider .item {
-        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-            translateZ(300px);
-    }
-    .banner .content h1 {
-        text-align: center;
-        width: 100%;
-        text-shadow: 0 10px 20px #000;
-        font-size: 7em;
-    }
     footer {
         height: auto;
         padding: 15px;
     }
 
     .footer-banner .slider {
-        width: 150px;
+        width: 200px;
         height: 200px;
     }
 
-    .footer-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .footer-links .link-item {
-        font-size: 0.9em;
+    .footer-banner .slider .item {
+        width: 80px;
+        height: 120px;
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)))) translateZ(300px);
     }
 }
 
 @media (max-width: 767px) {
-    .banner .slider {
-        width: 100px;
+    footer {
+        height: auto;
+        padding: 10px;
+    }
+
+    .footer-banner .slider {
+        width: 150px;
         height: 150px;
-        left: calc(50% - 50px);
     }
-    .banner .slider .item {
-        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-            translateZ(180px);
-    }
-    .banner .content h1 {
-        font-size: 5em;
+
+    .footer-banner .slider .item {
+        width: 60px;
+        height: 100px;
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)))) translateZ(200px);
     }
 }
