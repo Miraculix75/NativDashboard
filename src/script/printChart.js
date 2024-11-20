@@ -1,3 +1,4 @@
+// printChart.js
 function printChart(button) {
     const container = button.closest('.chart-container');
     const printContent = container.outerHTML;

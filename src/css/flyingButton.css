@@ -1,3 +1,4 @@
+/*flyingButton.css */
 /* Schwebender Button für Sidebar-Toggle */
 .toggle-sidebar-label {
     position: fixed;
@@ -18,7 +19,7 @@
 /* Button innerhalb der Sidebar anzeigen, wenn die Sidebar aktiv ist */
 #sidebar-toggle:checked + .toggle-sidebar-label {
     position: absolute;
-    left: calc(14% - 40px); /* Rechts innerhalb der Sidebar */
+    left: calc(14.75% - 0px); /* Rechts innerhalb der Sidebar */
     top: 20px;
 }
 

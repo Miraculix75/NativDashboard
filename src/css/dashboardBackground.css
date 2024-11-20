@@ -1,14 +1,33 @@
+/* dashboardBackground.css */
 /* Dashboard-Hintergrund */
 .dashboard {
     position: relative;
     width: 90%;
     height: 90%;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.7)); /* Sanfter Glaseffekt */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Transparenter Rand */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Tieferer Schatten */
+    backdrop-filter: blur(10px); /* Glas-Verwischungseffekt */
     overflow: hidden;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f4;
+    border-radius: 15px; /* Abgerundete Ecken */
+    transition: all 0.3s ease; /* Sanfte Übergänge */
+}
+
+.dashboard:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Intensiverer Schatten bei Hover */
+    transform: scale(1.02); /* Leichtes Vergrößern beim Hover */
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.85)); /* Hellerer Hintergrund */
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .dashboard {
+        width: 95%;
+        height: auto;
+        border-radius: 12px; /* Weniger Abrundung auf kleinen Geräten */
+    }
 }

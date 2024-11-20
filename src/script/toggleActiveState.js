@@ -1,3 +1,4 @@
+// toggleActiveState.js
 // Fügt beim Klick auf einen chart-container die Klasse .active hinzu 
 // und entfernt sie von allen anderen chart-container
 document.querySelectorAll('.chart-container').forEach(container => {

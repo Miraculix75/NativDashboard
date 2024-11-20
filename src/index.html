@@ -4,24 +4,22 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title>Futuristic Dashboard</title>
+		<!-- Allgemeine CSS-Dateien -->
+		<link rel="stylesheet" href="css/reset.css"> <!-- Optional, für Reset-Einstellungen -->
+		<link rel="stylesheet" href="css/main.css"> <!-- Haupt-CSS-Datei für das Layout -->
+
+		<!-- Modulare CSS-Dateien für spezifische Komponenten -->
+		<link rel="stylesheet" href="css/base.css"> <!-- Grundlegendes Styling -->
+		<link rel="stylesheet" href="css/layout.css"> <!-- Grid-Layout und Struktur -->
+		<link rel="stylesheet" href="css/chartContainer.css"> <!-- Chart-Container-Styling -->
+		<link rel="stylesheet" href="css/buttonIcons.css"> <!-- Styling für Buttons und Icons -->
+		<link rel="stylesheet" href="css/interactions.css"> <!-- Interaktionen und Animationen -->
+		<link rel="stylesheet" href="css/footer.css"> <!-- Styling für Footer -->
 	</head>
 
-	<!-- Allgemeine CSS-Dateien -->
-	<link rel="stylesheet" href="css/reset.css"> <!-- Optional, für Reset-Einstellungen -->
-	<link rel="stylesheet" href="css/main.css"> <!-- Haupt-CSS-Datei für das Layout -->
-
-	<!-- Modulare CSS-Dateien für spezifische Komponenten -->
-	<link rel="stylesheet" href="css/base.css"> <!-- Grundlegendes Styling -->
-	<link rel="stylesheet" href="css/layout.css"> <!-- Grid-Layout und Struktur -->
-	<link rel="stylesheet" href="css/chartContainer.css"> <!-- Chart-Container-Styling -->
-	<link rel="stylesheet" href="css/buttonIcons.css"> <!-- Styling für Buttons und Icons -->
-	<link rel="stylesheet" href="css/interactions.css"> <!-- Interaktionen und Animationen -->
-
-
-	<!-- Sidebar Toggle Button -->
-
 	<body>
+		<!-- Sidebar Toggle Button -->
 		<input type="checkbox" id="sidebar-toggle" style="display: none;">
 		<label for="sidebar-toggle" class="toggle-sidebar-label">
 			<!-- Icon für Sidebar-Toggle -->
@@ -30,116 +28,51 @@
 			</svg>
 		</label>
 
-
 		<aside class="sidebar">
-
 			<!-- Sidebar Navigation -->
+			<div class="logo-container">
+				<img src="images/logo.png" alt="REFU Logo" class="logo">
+			</div>
 			<ul class="SidebarNav">
-				<li>
-					<span class="logo">REFU</span>
-				</li>
-				<li class="active">
-					<a href="">
-						<svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px"
-							fill="#e8eaed">
-							<path
-								d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
-						</svg>
-						<span>Home</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px"
-							fill="#e8eaed">
-							<path
-								d="M240-240h220v-160H240v160Zm0-200h220v-280H240v280Zm260 200h220v-280H500v280Zm0-320h220v-160H500v160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v80h80v80h-80v80h80v80h-80v80h80v80h-80v80q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
-						</svg>
-						<span>Dashboard</span>
-					</a>
-				</li>
-				<li>
-					<button class="dropdown-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-							fill="#e8eaed">
-							<path d="M480-360 280-560h400L480-360Z" />
-						</svg>
-						<span>Create</span>
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">Dashboard</a></li>
+				<li><button class="dropdown-btn">
+						Create
 						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
 							fill="#e8eaed">
 							<path d="m280-400 200-200 200 200H280Z" />
 						</svg>
 					</button>
 					<ul class="sub-menu">
-						<li><a href=""></a>Folder</li>
-						<li><a href=""></a>Document</li>
-						<li><a href=""></a>Project</li>
+						<li><a href="#">Folder</a></li>
+						<li><a href="#">Document</a></li>
+						<li><a href="#">Project</a></li>
 					</ul>
 				</li>
-				<li>
-					<button class="dropdown-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-							fill="#e8eaed">
-							<path d="M480-360 280-560h400L480-360Z" />
-						</svg>
-						<span>Todo-Lists</span>
+				<li><button class="dropdown-btn">
+						Todo Lists
 						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
 							fill="#e8eaed">
 							<path d="m280-400 200-200 200 200H280Z" />
 						</svg>
 					</button>
 					<ul class="sub-menu">
-						<li><a href=""></a>Work</li>
-						<li><a href=""></a>Private</li>
-						<li><a href=""></a>Coding</li>
+						<li><a href="#">Work</a></li>
+						<li><a href="#">Private</a></li>
+						<li><a href="#">Coding</a></li>
 					</ul>
 				</li>
-				<li>
-					<button class="dropdown-btn">
-						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-							fill="#e8eaed">
-							<path d="M480-360 280-560h400L480-360Z" />
-						</svg>
-						<span>Finances</span>
-						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-							fill="#e8eaed">
-							<path d="m280-400 200-200 200 200H280Z" />
-						</svg>
-					</button>
-					<ul class="sub-menu">
-						<li><a href=""></a>Chart 1</li>
-						<li><a href=""></a>Chart 2</li>
-						<li><a href=""></a>Chart 3</li>
-					</ul>
-				</li>
-				<li>
-					<a href="">
-						<svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px"
-							fill="#e8eaed">
-							<path
-								d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
-						</svg>
-						<span>Calander</span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<span></span>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<span></span>
-					</a>
-				</li>
+				<li><a href="#">Finances</a></li>
+				<li><a href="#">Calendar</a></li>
 			</ul>
 		</aside>
 
 		<main>
-			<h1>Welcome to My Dashboard!</h1>
+			<h1>Welcome to My Futuristic Dashboard!</h1>
 			<p>This is a responsive dashboard layout using CSS Grid and Flexbox.</p>
-			<div class="dashboard"></div>
-				<!-- Chart Container 1 -->
+
+			<!-- Dashboard Section -->
+			<div class="dashboard">
 				<div class="chart-container">
 					<div class="chart-header">
 						<button class="close-btn">✖</button>
@@ -149,63 +82,52 @@
 					<h2>Chart 1</h2>
 					<canvas id="chart1"></canvas>
 				</div>
-
-
-				<!-- Weitere Chart-Container -->
-				<div class="chart-container">
-					<div class="chart-header">
-						<button class="close-btn">✖</button>
-						<button class="print-btn" onclick="printChart(this)">🖨</button>
-						<button class="clipboard-btn" onclick="copyToClipboard(this)">📋</button>
-					</div>
-					<h2>Chart 2</h2>
-					<canvas id="chart2"></canvas>
-				</div>
-
-				<!-- Weitere Container... -->
-				<div class="chart-container">
-					<div class="chart-header">
-						<button class="close-btn">✖</button>
-						<button class="print-btn" onclick="printChart(this)">🖨</button>
-						<button class="clipboard-btn" onclick="copyToClipboard(this)">📋</button>
-					</div>
-					<h2>Chart 3</h2>
-					<canvas id="chart3"></canvas>
-				</div>
-
-				<!-- Weitere Container... -->
-				<div class="chart-container">
-					<div class="chart-header">
-						<button class="close-btn">✖</button>
-						<button class="print-btn" onclick="printChart(this)">🖨</button>
-						<button class="clipboard-btn" onclick="copyToClipboard(this)">📋</button>
-					</div>
-					<h2>Chart 4</h2>
-					<canvas id="chart4"></canvas>
-				</div>
-
-				<!-- Weitere Container... -->
-				<div class="chart-container">
-					<div class="chart-header">
-						<button class="close-btn">✖</button>
-						<button class="print-btn" onclick="printChart(this)">🖨</button>
-						<button class="clipboard-btn" onclick="copyToClipboard(this)">📋</button>
-					</div>
-					<h2>Chart 5</h2>
-					<canvas id="chart5"></canvas>
-				</div>
 			</div>
 		</main>
 
+		<!-- Footer -->
+		<footer>
+			<div class="footer-banner">
+				<div class="slider" style="--quantity: 5">
+					<div class="item" style="--position: 1"><img src="images/dragon_1.jpg" alt="Image 1">
+						<div class="footer-links">
+							<div class="link-item"><a href="#impressum">Impressum</a></div>
+						</div>
+					</div>
+					<div class="item" style="--position: 2"><img src="images/dragon_2.jpg" alt="Image 2">
+						<div class="footer-links">
+                            <div class="link-item"><a href="#datenschutz">Datenschutz</a></div>
+                        </div>
+					</div>
+					<div class="item" style="--position: 3"><img src="images/dragon_3.jpg" alt="Image 3">
+						<div class="footer-links">
+                            <div class="link-item"><a href="#agb">AGB</a></div>
+                        </div>
+					</div>
+					<div class="item" style="--position: 4"><img src="images/dragon_4.jpg" alt="Image 4">
+						<div class="footer-links">
+                            <div class="link-item"><a href="#urheberrecht">Urheberrecht</a></div>
+                        </div>
+					</div>
+					<div class="item" style="--position: 5"><img src="images/dragon_5.jpg" alt="Image 5">
+						<div class="footer-links">
+                            <div class="link-item"><a href="#kontakt">Kontakt</a></div>
+                        </div>
+					</div>
+				</div>
+			</div>
+			
+		</footer>
 
-		<!-- <footer>Footer</footer> -->
-
-
+		<!-- Scripts -->
 		<script src="script/initPositions.js"></script>
 		<script src="script/dragAndDrop.js"></script>
 		<script src="script/resetContainer.js"></script>
 		<script src="script/printChart.js"></script>
 		<script src="script/copyToClipboard.js"></script>
+		<script src="script/footerSlider.js"></script>
+		<script src="script/toggleActiveState.js"></script>
+		<script src="script/dropdown-btn.js"></script>
 	</body>
 
 </html>

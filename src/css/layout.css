@@ -1,13 +1,23 @@
+/* layout.css */
 /* Layout und Grid-Struktur für das Dashboard */
 main {
     margin: 20px;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8)); /* Sanfter Gradient */
+    border-radius: 12px; /* Leicht größere Abrundung */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Tiefere Schatten für modernen Effekt */
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    height: 100vh;
+    grid-auto-rows: minmax(250px, auto); /* Einheitlichere Reihenhöhe */
+    height: auto; /* Automatische Anpassung für dynamische Inhalte */
     max-width: 100%;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Einzelspalte für kleinere Bildschirme */
+        gap: 15px; /* Weniger Abstand bei kleineren Geräten */
+    }
 }

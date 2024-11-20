@@ -1,34 +1,64 @@
+/* interactions.css */
 /* Hover- und Übergangseffekte für Chart-Container */
 .chart-container {
     display: flex;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.2); /* Transparenter Hintergrund */
+    backdrop-filter: blur(10px); /* Glas-Effekt */
+    border-radius: 12px;
 }
 
 .chart-container:hover {
-    transform: translateY(-5px); /* Leichtes Anheben bei Hover */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px); /* Stärkeres Anheben bei Hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Tieferer Schatten */
+    background: rgba(255, 255, 255, 0.4); /* Hellerer Hover-Hintergrund */
 }
 
 /* Übergangseffekte bei Aktivierung */
 .chart-container.active {
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transform: scale(1.05); /* Leichte Vergrößerung bei Aktivierung */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* Intensiverer Schatten */
+    z-index: 10; /* Überlagerungseffekt */
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
 /* Chart Titel Styling */
 .chart-container h2 {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 15px;
     text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Leichter Text-Schatten */
 }
 
 /* Canvas für die Charts */
 .chart-container canvas {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Innerer Schatten für Tiefe */
 }
 
 /* Zurücksetzen-Animation für alle Container */
 .chart-container.reset {
-    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    transform: translateY(0) scale(1);
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Interaktions-Effekt für Buttons */
+.chart-container .chart-header button {
+    transform: scale(1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chart-container .chart-header button:hover {
+    transform: scale(1.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Schatten beim Hover */
+    background: #10b981; /* Hover-Farbe für Buttons */
+    color: white;
 }

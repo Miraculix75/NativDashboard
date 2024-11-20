@@ -1,3 +1,4 @@
+/* buttonIcons.css */
 /* Styling für Chart-Header und Icon-Buttons */
 .chart-header {
     position: absolute;
@@ -8,20 +9,56 @@
 }
 
 .chart-header button {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.2); /* Halbtransparenter Hintergrund */
     border: none;
     font-size: 1.2em;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Tieferer Schatten */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .chart-header button:hover {
-    background-color: #f0f0f0;
+    background-color: rgba(16, 185, 129, 0.8); /* Grüne Hover-Farbe */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Intensiverer Schatten bei Hover */
+    transform: scale(1.1); /* Leichtes Vergrößern bei Hover */
+    color: white; /* Weißer Text bei Hover */
 }
 
 /* Spezifische Farben für die einzelnen Buttons */
-.close-btn { color: red; }
-.print-btn { color: green; }
-.clipboard-btn { color: blue; }
+.close-btn {
+    color: red;
+    background: rgba(255, 0, 0, 0.2); /* Rot hinterlegt */
+}
+
+.close-btn:hover {
+    background: rgba(255, 0, 0, 0.8); /* Intensiveres Rot bei Hover */
+}
+
+.print-btn {
+    color: green;
+    background: rgba(0, 128, 0, 0.2); /* Grün hinterlegt */
+}
+
+.print-btn:hover {
+    background: rgba(0, 128, 0, 0.8); /* Intensiveres Grün bei Hover */
+}
+
+.clipboard-btn {
+    color: blue;
+    background: rgba(0, 0, 255, 0.2); /* Blau hinterlegt */
+}
+
+.clipboard-btn:hover {
+    background: rgba(0, 0, 255, 0.8); /* Intensiveres Blau bei Hover */
+}
+
+/* Zusätzliche Animationen für Button-Aktionen */
+.chart-header button:active {
+    transform: scale(0.95); /* Leichtes Zusammenziehen beim Klicken */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Schwächerer Schatten */
+}

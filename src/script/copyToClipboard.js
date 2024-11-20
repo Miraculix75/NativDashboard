@@ -1,3 +1,4 @@
+/*copyToClipboard.js*/
 function copyToClipboard(button) {
     const container = button.closest('.chart-container');
     const canvas = container.querySelector('canvas');

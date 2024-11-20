@@ -1,3 +1,4 @@
+// resetContainer.js
 document.querySelectorAll('.chart-container').forEach(container => {
     container.querySelector('.close-btn').addEventListener('click', () => resetContainer(container));
 });

@@ -1,19 +1,16 @@
-/* Grundlegendes Styling und Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
-    background-color: #f4f4f4;
-    /* height: 100vh;
-    width: 100vw; */
-    display: flex;
-    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1f2937, #0d1117);
+    color: #e5e7eb;
 }
